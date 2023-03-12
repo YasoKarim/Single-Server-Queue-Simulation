@@ -196,8 +196,9 @@ for i in range(1, size):
     else:
         idle_time.insert(i,0)
 
-    if(arrival_time[i] < time_service_end[i - 1]):
-        queue_length[i] += 1 
+    for j in range(i,size):
+        if(arrival_time[j] < time_service_end[i - 1]):
+            queue_length[i] += 1 
       
 
 # To create simulation table
