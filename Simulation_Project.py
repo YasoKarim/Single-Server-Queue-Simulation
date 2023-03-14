@@ -198,7 +198,7 @@ for i in range(1, size):
 
     for j in range(i,size):
         if(arrival_time[j] < time_service_end[i - 1]):
-            queue_length[i] += 1 
+            queue_length[j] += 1 
       
 
 # To create simulation table
@@ -233,16 +233,20 @@ Average_waiting_time = sum(wait_time) / customers_number
 
 Average_system_time = sum(system_time) / customers_number
 
+average_queue_length = sum(queue_length) / customers_number 
+
 Server_utitization = (time_service_end[size - 1] - sum(idle_time)) / time_service_end[size - 1]
 
 probability_of_idle = sum(idle_time) / time_service_end[size - 1]
 
 probability_of_wait = count_wait_people / customers_number
 
+
 statisitics_table_data = {
                     'Average waiting time': [Average_waiting_time],
                     'Average system time ': [Average_system_time],
                     'Server utitization': [Server_utitization],
+                    'Average Queue Length':[average_queue_length],
                     'probability of idle' : [probability_of_idle],
                     'probability_of_wait': [probability_of_wait],
                     }
